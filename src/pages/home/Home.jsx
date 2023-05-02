@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import ChefCard from "./ChefCard";
 import RecentRecipes from "./RecentRecipes";
 import Brands from "./Brands";
+import Footer from "../../shared/Footer";
 
 const Home = () => {
   // State for chefs
@@ -33,6 +34,7 @@ const Home = () => {
       <div className="my-20">
         <Brands></Brands>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

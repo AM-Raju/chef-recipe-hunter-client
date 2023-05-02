@@ -11,7 +11,10 @@ const LeftNavigation = () => {
           <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
             Home
           </Link>
-          <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
+          <Link
+            to="/recipe"
+            className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider"
+          >
             Recipes
           </Link>
           <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">

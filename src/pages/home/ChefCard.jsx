@@ -1,5 +1,4 @@
 import React from "react";
-import chef from "../../assets/chefImage.jpg";
 import { FaHeart } from "react-icons/fa";
 
 const ChefCard = ({ chef }) => {
