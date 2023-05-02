@@ -12,6 +12,9 @@ const LeftNavigation = () => {
             Home
           </Link>
           <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
+            Recipes
+          </Link>
+          <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
             About
           </Link>
           <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
@@ -28,9 +31,11 @@ const LeftNavigation = () => {
         <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
           Register
         </button>
-        <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
-          Login
-        </button>
+        <Link to="/login">
+          <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
+            Login
+          </button>
+        </Link>
       </div>
     </div>
   );

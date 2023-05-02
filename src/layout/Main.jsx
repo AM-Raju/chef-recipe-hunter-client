@@ -5,8 +5,12 @@ import LeftNavigation from "../shared/LeftNavigation";
 const Main = () => {
   return (
     <div className="flex">
-      <LeftNavigation></LeftNavigation>
-      <Outlet></Outlet>
+      <div className="fixed">
+        <LeftNavigation></LeftNavigation>
+      </div>
+      <div className="relative left-72">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };
