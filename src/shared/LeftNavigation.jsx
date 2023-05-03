@@ -12,7 +12,7 @@ const LeftNavigation = () => {
             Home
           </Link>
           <Link
-            to="/recipe"
+            to="/chefs/flch1"
             className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider"
           >
             Recipes

@@ -4,19 +4,26 @@ import Footer from "../../shared/Footer";
 import ChefBanner from "./ChefBanner";
 import RecipeDetailsCard from "./RecipeDetailsCard";
 import Marquee from "react-fast-marquee";
+import { useLoaderData } from "react-router-dom";
 
 const ChefRecipes = () => {
-  const [chefs, setChefs] = useState([]);
-  // Getting chefs data from server
+  const [recipes, setRecipes] = useState([]);
+  // Getting single chef's data through loader
+  const chef = useLoaderData();
+  const id = chef.id;
+
+  //Getting all recipe data from server
   useEffect(() => {
-    fetch("http://localhost:5000/chefs")
+    fetch("http://localhost:5000/recipes")
       .then((res) => res.json())
-      .then((data) => setChefs(data))
-      .catch((error) => console.error(error));
+      .then((data) => setRecipes(data))
+      .catch((error) => console.error(error.message));
   }, []);
+
+  const filteredRecipes = recipes.filter((recipe) => recipe.chef_id === id);
   return (
     <div className="w-[1615px] bg-[#002C41] h-full">
-      <ChefBanner></ChefBanner>
+      <ChefBanner key={chef.id} chef={chef}></ChefBanner>
       <div>
         <Marquee
           speed={100}
@@ -26,9 +33,9 @@ const ChefRecipes = () => {
           gradientWidth={300}
         >
           <div className="mx-auto py-14 flex">
-            <RecipeDetailsCard></RecipeDetailsCard>
-            <RecipeDetailsCard></RecipeDetailsCard>
-            <RecipeDetailsCard></RecipeDetailsCard>
+            {filteredRecipes.map((recipe) => (
+              <RecipeDetailsCard key={recipe.id} recipe={recipe}></RecipeDetailsCard>
+            ))}
           </div>
         </Marquee>
       </div>
