@@ -4,6 +4,7 @@ import ChefCard from "./ChefCard";
 import RecentRecipes from "./RecentRecipes";
 import Brands from "./Brands";
 import Footer from "../../shared/Footer";
+import Marquee from "react-fast-marquee";
 
 const Home = () => {
   // State for chefs
@@ -22,11 +23,19 @@ const Home = () => {
       {/* Homepage Banner section */}
       <Banner></Banner>
       {/* Homepage Chefs card section */}
-      <div className="grid grid-cols-6 gap-3 pt-2 pb-2">
-        {chefs.map((chef) => (
-          <ChefCard key={chef.id} chef={chef}></ChefCard>
-        ))}
-      </div>
+      <Marquee
+        speed={100}
+        pauseOnHover={true}
+        gradient={true}
+        gradientColor={[0, 44, 65]}
+        gradientWidth={300}
+      >
+        <div className="grid grid-cols-6 gap-3 pt-2 pb-2">
+          {chefs.map((chef) => (
+            <ChefCard key={chef.id} chef={chef}></ChefCard>
+          ))}
+        </div>
+      </Marquee>
       {/* Homepage recent recipes section */}
       <div className="my-20">
         <RecentRecipes></RecentRecipes>

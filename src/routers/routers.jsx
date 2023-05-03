@@ -3,11 +3,15 @@ import Main from "../layout/Main";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import ChefRecipes from "../pages/chefRecipe/ChefRecipes";
+import Blog from "../pages/blog/Blog";
+import About from "../pages/about/About";
+import ErrorPage from "../shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -21,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },

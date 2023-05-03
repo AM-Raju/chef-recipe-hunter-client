@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active-link {
+  @apply py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider text-[#fd6656];
+}
+
+.inactive-link {
+  @apply py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider;
+}

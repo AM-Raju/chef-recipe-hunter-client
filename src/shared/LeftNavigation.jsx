@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaInstagram, FaRegUserCircle, FaUser } from "react-icons/fa";
 
 const LeftNavigation = () => {
@@ -8,24 +8,30 @@ const LeftNavigation = () => {
       <div className="py-8 px-10">
         <h2 className="text-4xl font-bold text-[#fd6656] tracking-wider">FOOD Lab</h2>
         <nav className="flex flex-col mt-10">
-          <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}
+          >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/chefs/flch1"
-            className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider"
+            className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}
           >
             Recipes
-          </Link>
-          <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}
+          >
             About
-          </Link>
-          <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
+          </NavLink>
+          <NavLink
+            to="/blog"
+            className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}
+          >
             Blog
-          </Link>
-          <Link className="py-4 border-b font-semibold text-lg hover:border-[#fd6656] transition-all duration-500 tracking-wider">
-            Contact
-          </Link>
+          </NavLink>
         </nav>
         <div className="flex mt-16 mx-auto w-20 gap-3">
           <FaRegUserCircle className="text-3xl"></FaRegUserCircle>
@@ -34,11 +40,11 @@ const LeftNavigation = () => {
         <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
           Register
         </button>
-        <Link to="/login">
+        <NavLink to="/login">
           <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
             Login
           </button>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
