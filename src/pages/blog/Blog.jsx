@@ -1,10 +1,14 @@
 import React from "react";
 import SimpleBanner from "../../shared/SimpleBanner";
 import Footer from "../../shared/Footer";
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import ReactPDF from "@react-pdf/renderer";
 
 const Blog = () => {
   return (
     <div className="bg-[#002C41]">
+      {/* Pdf creation */}
+      {/* Pdf creation end */}
       <div className="w-[1615px] bg-[#002C41] h-full">
         <SimpleBanner>Blog</SimpleBanner>
       </div>

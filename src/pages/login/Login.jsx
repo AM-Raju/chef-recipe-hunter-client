@@ -3,7 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { user, login, signInWithGoogle, signInGithub } = useContext(AuthContext);
+  const { user, login, signInWithGoogle, signInGithub, loggedStatus } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();

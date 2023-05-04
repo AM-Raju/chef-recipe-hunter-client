@@ -31,7 +31,7 @@ const Register = () => {
         setSuccess("Registration completed successfully");
         updateUserData(registeredUser, name, photoUrl);
         form.reset();
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => setError(error.message));
   };

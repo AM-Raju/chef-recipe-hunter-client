@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import use_flag from "../assets/use_flag.png";
 
 const LeftNavigation = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loggedUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -63,7 +63,7 @@ const LeftNavigation = () => {
         </div>
         {!user && (
           <NavLink to="/register">
-            <button className="px-5 py-2  bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full  mt-4 text-lg font-semibold tracking-wider">
+            <button className="px-5 py-2  bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-52  mt-4 text-lg font-semibold tracking-wider">
               Register
             </button>
           </NavLink>
@@ -71,7 +71,7 @@ const LeftNavigation = () => {
 
         {!user ? (
           <NavLink to="/login">
-            <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
+            <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-52 mt-4 text-lg font-semibold tracking-wider block">
               Login
             </button>
           </NavLink>
