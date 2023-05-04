@@ -9,4 +9,4 @@
 
 ### Live Site Link:
 
-- https://clinquant-lollipop-ad715a.netlify.app
+- https://chef-recipe-hunter-cs.web.app/

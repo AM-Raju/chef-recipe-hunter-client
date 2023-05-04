@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaInstagram, FaRegUserCircle, FaUser } from "react-icons/fa";
 import { AuthContext } from "../providers/AuthProvider";
+import use_flag from "../assets/use_flag.png";
 
 const LeftNavigation = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -42,7 +43,8 @@ const LeftNavigation = () => {
             Blog
           </NavLink>
         </nav>
-        <div className="flex mt-16 mx-auto w-20 gap-3 ">
+        <div className="flex mt-16 mx-auto w-28 gap-3 ">
+          <img className="w-7 h-7" src={use_flag} alt="" />
           {user ? (
             <>
               <img
@@ -81,12 +83,6 @@ const LeftNavigation = () => {
             Sign Out
           </button>
         )}
-
-        {/* <NavLink to="/login">
-          <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
-            Login
-          </button>
-        </NavLink> */}
       </div>
     </div>
   );
