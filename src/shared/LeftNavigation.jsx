@@ -7,8 +7,6 @@ const LeftNavigation = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  console.log(user, "amar nam");
-
   const handleSignOut = () => {
     logOut().then(() => {
       navigate("/");

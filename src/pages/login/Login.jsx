@@ -20,7 +20,6 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password, "from login page");
 
     // Reset the existing error message
     setError("");

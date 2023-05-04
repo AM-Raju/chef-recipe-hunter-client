@@ -9,7 +9,7 @@ const Banner = () => {
        bg-cover text-white"
         style={{ backgroundImage: `url(${banner})` }}
       >
-        <div className="text-7xl font-bold text-center pt-36 pb-36 bg-gradient-to-t from-[#011D29] opacity-95">
+        <div className="text-5xl lg:text-7xl font-bold text-center pt-36 pb-36 bg-gradient-to-t from-[#011D29] opacity-95">
           <h2 className="tracking-wider">Change Your Taste</h2>
           <h2 className="pt-8 tracking-wider">
             with <span className="text-[#fd6656]"> BESTs</span>

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import LeftNavigation from "../shared/LeftNavigation";
+import TopNavigation from "../pages/home/TopNavigation";
 
 const Main = () => {
   return (
@@ -8,7 +9,9 @@ const Main = () => {
       <div className="fixed">
         <LeftNavigation></LeftNavigation>
       </div>
-      <div className="relative left-72">
+      <div className="relative lg:left-72">
+        <TopNavigation></TopNavigation>
+
         <Outlet></Outlet>
       </div>
     </div>

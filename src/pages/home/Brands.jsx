@@ -8,9 +8,9 @@ import brand_6 from "../../assets/brand_6.png";
 
 const Brands = () => {
   return (
-    <div className="h-72 bg-[#225a74]">
+    <div className="lg:h-72 bg-[#225a74]">
       <h3 className="text-5xl font-semibold text-center pt-10 text-white">Chefs are From</h3>
-      <div className="flex justify-around mt-5">
+      <div className="flex flex-wrap justify-around mt-5">
         <img className="grayscale hover:grayscale-0" src={brand_1} alt="" />
         <img className="grayscale hover:grayscale-0" src={brand_2} alt="" />
         <img className="grayscale hover:grayscale-0" src={brand_3} alt="" />

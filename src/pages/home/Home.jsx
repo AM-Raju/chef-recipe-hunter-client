@@ -19,14 +19,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-[1615px] bg-[#002C41] h-full">
+    <div className="lg:w-[1615px] bg-[#002C41] h-full">
       {/* Homepage Banner section */}
       <Banner></Banner>
       {/* Homepage Chefs card section */}
       <Marquee
         speed={100}
         pauseOnHover={true}
-        gradient={true}
+        gradient={false}
         gradientColor={[0, 44, 65]}
         gradientWidth={300}
       >

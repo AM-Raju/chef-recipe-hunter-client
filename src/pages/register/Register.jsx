@@ -21,7 +21,6 @@ const Register = () => {
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photoUrl, email, password, "khulna");
 
     // Making error and success message blank
     setError("");
@@ -29,7 +28,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const registeredUser = result.user;
-        console.log(registeredUser, "magura");
         setSuccess("Registration completed successfully");
         updateUserData(registeredUser, name, photoUrl);
         form.reset();
@@ -40,10 +38,8 @@ const Register = () => {
 
   // Update user data
   const updateUserData = (registeredUser, name, photoUrl) => {
-    console.log("bangladesh nama");
     updateProfile(registeredUser, { displayName: name, photoURL: photoUrl })
       .then(() => {
-        console.log(registeredUser, "Updated profile");
         setSuccess("Profile updated");
       })
       .catch((error) => setError(error.message));
