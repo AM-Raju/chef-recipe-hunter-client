@@ -1,15 +1,21 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
+
+const googleAuthProvider = new GoogleAuthProvider();
+const gitProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   //States
@@ -21,8 +27,19 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // Sign in with email and password
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // Sign in with google
+  const signInWithGoogle = () => {
+    return signInWithPopup(auth, googleAuthProvider);
+  };
+
+  // Sign in with github
+  const signInGithub = () => {
+    return signInWithPopup(auth, gitProvider);
   };
 
   const logOut = () => {
@@ -41,7 +58,15 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { createUser, user, loader, login, logOut };
+  const authInfo = {
+    createUser,
+    user,
+    loader,
+    login,
+    logOut,
+    signInWithGoogle,
+    signInGithub,
+  };
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 

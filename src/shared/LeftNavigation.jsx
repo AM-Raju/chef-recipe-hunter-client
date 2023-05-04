@@ -49,6 +49,7 @@ const LeftNavigation = () => {
                 src={user.photoURL}
                 alt=""
                 title={user.displayName}
+                referrerPolicy="no-referrer"
               />
             </>
           ) : (

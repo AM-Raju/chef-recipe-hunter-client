@@ -14,7 +14,7 @@ const ChefRecipes = () => {
 
   //Getting all recipe data from server
   useEffect(() => {
-    fetch("http://localhost:5000/recipes")
+    fetch("https://chef-recipe-hunter-ss-am-raju.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => setRecipes(data))
       .catch((error) => console.error(error.message));

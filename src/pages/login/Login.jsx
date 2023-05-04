@@ -3,7 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, signInWithGoogle, signInGithub } = useContext(AuthContext);
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -25,6 +25,22 @@ const Login = () => {
         const loggedUser = result.user;
         setSuccess("Login successful");
         form.reset();
+      })
+      .catch((error) => setError(error.message));
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then(() => {
+        setSuccess("Successfully Signed In with Google");
+      })
+      .catch((error) => setError(error.message));
+  };
+
+  const handleGitSignIn = () => {
+    signInGithub()
+      .then(() => {
+        setSuccess("Successfully signed in with Github");
       })
       .catch((error) => setError(error.message));
   };
@@ -63,23 +79,29 @@ const Login = () => {
           <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
             Login
           </button>
-          <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
-            Login with Google
-          </button>
-          <button className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider">
-            Login with GitHub
-          </button>
-          <p className="mt-4 tracking-wider">
-            <small>
-              Not registered yet? Please
-              <Link className="text-decoration-none text-green-200" to="/register">
-                <span> Register </span>
-              </Link>
-            </small>
-          </p>
-          {error && <p className="text-red-500">{error}</p>}
-          {user && !error && <p className="text-green-200">{success}</p>}
         </form>
+        <button
+          onClick={handleGoogleLogin}
+          className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider"
+        >
+          Login with Google
+        </button>
+        <button
+          onClick={handleGitSignIn}
+          className="px-5 py-2 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-full mt-4 text-lg font-semibold tracking-wider"
+        >
+          Login with GitHub
+        </button>
+        <p className="mt-4 tracking-wider">
+          <small>
+            Not registered yet? Please
+            <Link className="text-decoration-none text-green-200" to="/register">
+              <span> Register </span>
+            </Link>
+          </small>
+        </p>
+        {error && <p className="text-red-500">{error}</p>}
+        {user && !error && <p className="text-green-200">{success}</p>}
       </div>
     </div>
   );
