@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaInstagram, FaRegUserCircle, FaUser } from "react-icons/fa";
 import { AuthContext } from "../providers/AuthProvider";
 
 const LeftNavigation = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   console.log(user, "amar nam");
 
   const handleSignOut = () => {
-    logOut();
+    logOut().then(() => {
+      navigate("/");
+    });
   };
   return (
     <div className="bg-[#011D29] text-white min-w-72 min-h-screen hidden lg:block">

@@ -7,6 +7,7 @@ import Blog from "../pages/blog/Blog";
 import About from "../pages/about/About";
 import ErrorPage from "../shared/ErrorPage";
 import Register from "../pages/register/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/chefs/:id",
-        element: <ChefRecipes></ChefRecipes>,
+        element: (
+          <PrivateRoutes>
+            <ChefRecipes></ChefRecipes>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`https://chef-recipe-hunter-ss-am-raju.vercel.app/chefs/${params.id}`),
       },

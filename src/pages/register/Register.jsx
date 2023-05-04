@@ -1,14 +1,18 @@
 import React, { useContext, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { user, createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
+  // State
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  // Handle registation
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -29,6 +33,7 @@ const Register = () => {
         setSuccess("Registration completed successfully");
         updateUserData(registeredUser, name, photoUrl);
         form.reset();
+        navigate("/login");
       })
       .catch((error) => setError(error.message));
   };

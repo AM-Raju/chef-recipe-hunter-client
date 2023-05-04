@@ -1,9 +1,14 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { user, login, signInWithGoogle, signInGithub } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -25,6 +30,7 @@ const Login = () => {
         const loggedUser = result.user;
         setSuccess("Login successful");
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => setError(error.message));
   };
@@ -33,6 +39,7 @@ const Login = () => {
     signInWithGoogle()
       .then(() => {
         setSuccess("Successfully Signed In with Google");
+        navigate(from, { replace: true });
       })
       .catch((error) => setError(error.message));
   };
@@ -41,6 +48,7 @@ const Login = () => {
     signInGithub()
       .then(() => {
         setSuccess("Successfully signed in with Github");
+        navigate(from, { replace: true });
       })
       .catch((error) => setError(error.message));
   };

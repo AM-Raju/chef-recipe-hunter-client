@@ -34,7 +34,7 @@ const ChefRecipes = () => {
         >
           <div className="mx-auto py-14 flex">
             {filteredRecipes.map((recipe) => (
-              <RecipeDetailsCard key={recipe.id} recipe={recipe}></RecipeDetailsCard>
+              <RecipeDetailsCard key={recipe._id} recipe={recipe}></RecipeDetailsCard>
             ))}
           </div>
         </Marquee>
