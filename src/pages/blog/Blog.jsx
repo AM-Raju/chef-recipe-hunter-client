@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import SimpleBanner from "../../shared/SimpleBanner";
 import Footer from "../../shared/Footer";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import ReactPDF from "@react-pdf/renderer";
+import ReactToPrint from "react-to-print";
 
 const Blog = () => {
+  const componentRef = useRef();
   return (
     <div className="bg-[#002C41]">
-      {/* Pdf creation */}
-      {/* Pdf creation end */}
       <div className="w-[1615px] bg-[#002C41] h-full">
         <SimpleBanner>Blog</SimpleBanner>
       </div>
-      <div className="my-container mt-32 relative -top-10">
+      <div className="relative">
+        <button className="px-5 py-2 absolute right-10 top-5 bg-[#fd6656] hover:bg-transparent border border-[#fd6656] rounded w-52  mt-4 text-lg font-semibold tracking-wider">
+          <ReactToPrint
+            trigger={() => <p>Print or Save Pdf</p>}
+            content={() => componentRef.current}
+          ></ReactToPrint>
+        </button>
+      </div>
+      <div ref={componentRef} className=" w-[1200px] mx-auto mt-32 relative pt-10 -top-10">
         <div className="w-[800px] bg-gray-400 mx-auto p-8 border rounded-md my-10 hover:border-purple-400 relative right-36">
           <h3 className="text-2xl font-semibold">
             Question: Tell us the differences between uncontrolled and controlled components.
@@ -56,6 +62,7 @@ const Blog = () => {
           </p>
         </div>
       </div>
+
       <div className=" pt-16 pb-16 bg-gradient-to-b from-[#011D29] opacity-95">
         <Footer></Footer>
       </div>
