@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { user, createUser } = useContext(AuthContext);
+  const { user, createUser, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // State
@@ -30,10 +30,17 @@ const Register = () => {
         const registeredUser = result.user;
         setSuccess("Registration completed successfully");
         updateUserData(registeredUser, name, photoUrl);
+        afterRegSignOut();
         form.reset();
-        navigate("/");
       })
       .catch((error) => setError(error.message));
+  };
+
+  // SignOut after registration
+  const afterRegSignOut = () => {
+    logOut().then(() => {
+      navigate("/login");
+    });
   };
 
   // Update user data

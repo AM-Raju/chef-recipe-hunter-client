@@ -1,13 +1,16 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 const ChefCard = ({ chef }) => {
   const { id, name, picture, likes, numberOfRecipes, experience } = chef;
   return (
     <div className="w-[258px] bg-[#225a74] h-[379px] rounded text-center text-white">
       <div className=" w-40 mx-auto my-5">
-        <img className="border-2 border-[#fd6656] rounded-full" src={picture} alt="" />
+        <LazyLoad width={160} height={160} threshold={0.95}>
+          <img className="border-2 border-[#fd6656] rounded-full" src={picture} alt="" />
+        </LazyLoad>
       </div>
       <h3 className="text-xl">{name}</h3>
       <p>{experience} Years Cooking experience</p>

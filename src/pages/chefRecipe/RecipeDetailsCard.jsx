@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import LazyLoad from "react-lazy-load";
 
 const RecipeDetailsCard = ({ recipe }) => {
   const { _id, recipe_name, recipe_img, ingredients, instructions, rating } = recipe;
@@ -15,7 +16,11 @@ const RecipeDetailsCard = ({ recipe }) => {
 
   return (
     <div className="flex items-center ml-10 w-[900px] relative">
-      <img className="w-64 h-96 rounded" src={recipe_img} alt="" />
+      <LazyLoad width={256} height={384}>
+        <div className="w-64 h-96 rounded">
+          <img src={recipe_img} alt="" />
+        </div>
+      </LazyLoad>
       <div className="text-white border-t-2 border-r-2 border-b-2 py-8 pl-20 pr-10 relative right-8">
         <h3 className="text-2xl font-semibold">{recipe_name}</h3>
         <div className="mt-3">
